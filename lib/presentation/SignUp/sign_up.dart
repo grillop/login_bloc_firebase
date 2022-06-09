@@ -1,9 +1,11 @@
-import 'package:bloc_auth/bloc/bloc/auth_bloc.dart';
-import 'package:bloc_auth/presentation/Dashboard/dashboard.dart';
-import 'package:bloc_auth/presentation/SignIn/sign_in.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_signin_button/flutter_signin_button.dart';
+
+import '../../bloc/bloc/auth_bloc.dart';
+import '../Dashboard/dashboard.dart';
+import '../SignIn/sign_in.dart';
 
 class SignUp extends StatefulWidget {
   const SignUp({Key? key}) : super(key: key);
@@ -136,15 +138,11 @@ class _SignUpState extends State<SignUp> {
                         child: const Text("Sign In"),
                       ),
                       const Text("Or"),
-                      IconButton(
+                      SignInButton(
+                        Buttons.Google,
                         onPressed: () {
                           _authenticateWithGoogle(context);
                         },
-                        icon: Image.network(
-                          "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/1200px-Google_%22G%22_Logo.svg.png",
-                          height: 30,
-                          width: 30,
-                        ),
                       ),
                     ],
                   ),

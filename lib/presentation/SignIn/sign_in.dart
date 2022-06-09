@@ -1,9 +1,11 @@
-import 'package:bloc_auth/bloc/bloc/auth_bloc.dart';
-import 'package:bloc_auth/presentation/Dashboard/dashboard.dart';
-import 'package:bloc_auth/presentation/SignUp/sign_up.dart';
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_signin_button/flutter_signin_button.dart';
+
+import '../../bloc/bloc/auth_bloc.dart';
+import '../Dashboard/dashboard.dart';
+import '../SignUp/sign_up.dart';
 
 class SignIn extends StatefulWidget {
   const SignIn({Key? key}) : super(key: key);
@@ -28,7 +30,7 @@ class _SignInState extends State<SignIn> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("SignIn"),
+        title: const Center(child: Text("SignIn")),
       ),
       body: BlocListener<AuthBloc, AuthState>(
         listener: (context, state) {
@@ -128,15 +130,11 @@ class _SignInState extends State<SignIn> {
                             ),
                           ),
                         ),
-                        IconButton(
+                        SignInButton(
+                          Buttons.Google,
                           onPressed: () {
                             _authenticateWithGoogle(context);
                           },
-                          icon: Image.network(
-                            "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/1200px-Google_%22G%22_Logo.svg.png",
-                            height: 30,
-                            width: 30,
-                          ),
                         ),
                         const Text("Don't have an account?"),
                         OutlinedButton(

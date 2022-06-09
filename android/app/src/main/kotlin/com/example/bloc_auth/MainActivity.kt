@@ -1,4 +1,4 @@
-package com.example.bloc_auth
+package com.grillohouse.recipesgh
 
 import io.flutter.embedding.android.FlutterActivity
 

@@ -13,6 +13,8 @@ class AuthRepository {
         throw Exception('The password provided is too weak.');
       } else if (e.code == 'email-already-in-use') {
         throw Exception('The account already exists for that email.');
+      } else {
+        throw Exception(e.code);
       }
     } catch (e) {
       throw Exception(e.toString());
@@ -37,7 +39,8 @@ class AuthRepository {
 
   Future<void> signInWithGoogle() async {
     try {
-      final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
+      GoogleSignIn googleSignIn = GoogleSignIn();
+      final GoogleSignInAccount? googleUser = await googleSignIn.signIn();
 
       final GoogleSignInAuthentication? googleAuth =
           await googleUser?.authentication;

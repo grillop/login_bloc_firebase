@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.bloc_auth">
+    package="com.grillohouse.recipesgh">
    <application
         android:label="bloc_auth"
         android:name="${applicationName}"
